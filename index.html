@@ -12,14 +12,14 @@
 
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-<script type="text/javascript" href="js/main.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 
 </head>
 
 
-<body ng-app="" ng-init="ticTacToe= [['','',''],['','',''],['','','']];">
-
+<!-- <body ng-app="" ng-init="ticTacToe= [['','',''],['','',''],['','','']];"> -->
+<body ng-app="">
 
 <header>tic-tac-toe</header>  
 
@@ -28,8 +28,8 @@ Player 1 - Your Turn
 </div>
 
 
-<div id="container">
-
+<div id="container" ng-controller="TicTacCtrl">
+<!-- <div id="container">  -->
 
 <div id="message_overlay">
   Message Overlay
@@ -39,10 +39,20 @@ Player 1 - Your Turn
   
 </div>
 
+
+
+<!-- {{"cell" + $index}} -->
+
 <div id = "row_array" ng-repeat="row in ticTacToe">
-	<div class="sqr" ng-repeat="cell in row track by $index">
-		<!-- {{cell + " " + $index}} -->
-		{{cell}}
+    <!-- {{$index}} -->
+	<!-- <div class="sqr" ng-repeat="cell in row track by $index" ng-click="cell=playerChoice()" ng-init="cell=''"> -->
+		<div ng-class="{sqr:true, topline:$parent.$index!=0, leftline:$index!=0}" ng-repeat="cell in row track by $index" ng-click="clickSquare($parent.$index, $index)">
+      <!-- <div ng-class="{sqr:true, topline:$parent.$index!=0, leftline:$index!=0}" ng-repeat="cell in row track by $index" ng-click="cell='X'"> -->
+		<!-- <div ng-click="cell()"></div> -->
+     <!-- {{$parent.$index + "," + $index}} -->
+     {{cell}}
+		<!-- {{$parent.$index + "," + $index}} -->
+		<!-- {{cell}} -->
 	</div>
 
 <div class="clearfix"></div>
@@ -55,5 +65,12 @@ Player 1 - Your Turn
 
 
 </body>
+
+
+
+
+
+
+
 
 </html>

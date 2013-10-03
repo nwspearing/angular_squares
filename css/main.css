@@ -21,6 +21,17 @@
 
 }
 
+.topline {
+	border-top: 3px solid black;
+}
+
+.leftline {
+	border-left: 3px solid black;
+}
+
+
+
+
 .clearfix {clear:both}
 
 
