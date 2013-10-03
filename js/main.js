@@ -19,8 +19,10 @@ $scope.ticTacToe= [['','',''],['','',''],['','','']];
 
 $scope.clickSquare = function(row, column) { 
    
-    console.log(row);
-    console.log(column);
+
+
+    // console.log(row);
+    // console.log(column);
 
      
 
@@ -55,12 +57,16 @@ $scope.clickSquare = function(row, column) {
 
       event.target.innerHTML="X";
       this.ticTacToe[row][column]= "X";
+      
       }
 
 
     else {
+  
     event.target.innerHTML = "O";
+
     this.ticTacToe[row][column]="O";
+     
     }
     
     document.getElementById("notification").innerHTML = "Player "+((player_turn % 2)+1)+" - your turn!";
@@ -112,51 +118,33 @@ $scope.clickSquare = function(row, column) {
         {
 
 
-        
-         
-          if (cellArray[0] == cellArray[3] && cellArray[3] != "" && cellArray[3] == cellArray[6])
-              win();
-            
-          else if (cellArray[1] == cellArray[4] && cellArray[4] != "" && cellArray[4] == cellArray[7])
+          
+          if (this.ticTacToe[0][0] == this.ticTacToe[0][1] && this.ticTacToe[0][1]  != "" && this.ticTacToe[0][1]  == this.ticTacToe[0][2] )
               win();
 
-          else if (cellArray[2] == cellArray[5] && cellArray[5] != "" && cellArray[5] == cellArray[8])
-            { 
-             
+           if (this.ticTacToe[1][0] == this.ticTacToe[1][1] && this.ticTacToe[1][1]  != "" && this.ticTacToe[1][1]  == this.ticTacToe[1][2] )
               win();
-            }
-          else if (cellArray[0] == cellArray[1] && cellArray[1] != "" && cellArray[1] == cellArray[2])
-            { 
-            
+          if (this.ticTacToe[2][0] == this.ticTacToe[2][1] && this.ticTacToe[2][1]  != "" && this.ticTacToe[2][1]  == this.ticTacToe[2][2] )
               win();
-            }
-          else if (cellArray[3] == cellArray[4] && cellArray[4] != "" && cellArray[4] == cellArray[5])
-            { 
-            
+          if (this.ticTacToe[0][0] == this.ticTacToe[1][0] && this.ticTacToe[1][0]  != "" && this.ticTacToe[1][0]  == this.ticTacToe[2][0] )
               win();
-            }
-          else if (cellArray[6] == cellArray[7] && cellArray[7] != "" && cellArray[7] == cellArray[8])
-            { 
-             
+          if (this.ticTacToe[0][1] == this.ticTacToe[1][1] && this.ticTacToe[1][1]  != "" && this.ticTacToe[1][1]  == this.ticTacToe[2][1] )
+              win();  
+          if (this.ticTacToe[0][2] == this.ticTacToe[1][2] && this.ticTacToe[1][2]  != "" && this.ticTacToe[1][2]  == this.ticTacToe[2][2] )
+              win(); 
+            if (this.ticTacToe[0][0] == this.ticTacToe[1][1] && this.ticTacToe[1][1]  != "" && this.ticTacToe[1][1]  == this.ticTacToe[2][2] )
               win();
-            }
-          else if (cellArray[0] == cellArray[4] && cellArray[4] != "" && cellArray[4] == cellArray[8])
-            { 
-            
+             if (this.ticTacToe[0][2] == this.ticTacToe[1][1] && this.ticTacToe[1][1]  != "" && this.ticTacToe[1][1]  == this.ticTacToe[2][0] )
               win();
-            }
-          else if (cellArray[2] == cellArray[4] && cellArray[4] != "" && cellArray[4] == cellArray[6])
-            { 
-           
-              win();
-            } 
+
+       
           else if (player_turn > 9)
             {
              
               tie(); 
 
             }
-
+            
           }
 
        // end playBox
