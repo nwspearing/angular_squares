@@ -1,0 +1,59 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+<script type="text/javascript" href="js/main.js"></script>
+
+
+</head>
+
+
+<body ng-app="" ng-init="ticTacToe= [['','',''],['','',''],['','','']];">
+
+
+<header>tic-tac-toe</header>  
+
+<div id="notification">
+Player 1 - Your Turn
+</div>
+
+
+<div id="container">
+
+
+<div id="message_overlay">
+  Message Overlay
+  <br>
+
+  <input type="button" id="btn2" value="Start Again" onclick="startAgain()"/>
+  
+</div>
+
+<div id = "row_array" ng-repeat="row in ticTacToe">
+	<div class="sqr" ng-repeat="cell in row track by $index">
+		<!-- {{cell + " " + $index}} -->
+		{{cell}}
+	</div>
+
+<div class="clearfix"></div>
+
+</div>  <!-- end message overlay -->
+</div>    <!-- end container -->
+
+
+<input type="button" id="btn1" value="Quit and Start Again" onclick="startAgain()"/>
+
+
+</body>
+
+</html>
